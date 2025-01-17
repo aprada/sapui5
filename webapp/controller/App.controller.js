@@ -1,5 +1,6 @@
 sap.ui.define(
     [
+      //
         "sap/ui/core/mvc/Controller",
         "zfgghadamantenimientousuario/zfgghadamantusuario/lib/libraryHADA"
     ],
@@ -8,7 +9,7 @@ sap.ui.define(
   
       return BaseController.extend("zfgghadamantenimientousuario.zfgghadamantusuario.controller.App", {
         onInit: function() {
-          
+
         }
       });
     }
