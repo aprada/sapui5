@@ -1,0 +1,46 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:t="sap.ui.table" 
+    xmlns:d="sap.ui.unified"
+>
+    <Dialog
+        id="dialogParamPerfil"
+        class="sapUiPopupWithPadding"
+        contentWidth="1000px"
+        contentHeight="520px"
+        busyIndicatorDelay="0"  
+        showHeader="true" >
+
+        <t:Table id="table" selectionMode="None" rows="{paramPerfil>/}"  ariaLabelledBy="title" rowHeight="auto" visibleRowCount="13">
+            <t:columns> 
+                <t:Column id="param" width="11rem" visible="false">
+                    <Label  text="Parámetro" />
+                        <t:template>
+                            <Text tooltip="{paramPerfil>PrmOrg}" text="{paramPerfil>PrmOrg}" wrapping="false" />
+                        </t:template>
+                </t:Column>
+                <t:Column id="desParam" width="33rem" >
+                    <Label  text="Descripción Parámetro" />
+                        <t:template>
+                            <Text  tooltip="{paramPerfil>DescPrmOrg}" text="{paramPerfil>DescPrmOrg}" wrapping="false" />
+                        </t:template>
+                </t:Column>
+                <t:Column id="valueParam" width="33rem" >
+                    <Label text="Valor Parámetro" />
+                        <t:template>
+                            <Text   tooltip="{paramPerfil>Value}" text="{paramPerfil>Value}" wrapping="false" />
+                        </t:template>
+                </t:Column>
+                                        
+                </t:columns>
+        </t:Table>	
+		<endButton>
+			<Button id="Cancelar" text="Cancelar" press="onCloseParam"/>
+		</endButton>
+    </Dialog>
+</core:FragmentDefinition>

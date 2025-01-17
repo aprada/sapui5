@@ -1,0 +1,14 @@
+<mvc:View controllerName="zfgghadamantenimientousuario.zfgghadamantusuario.controller.setPerfiles"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+  	<Page
+		showHeader="false"
+		enableScrolling="true"
+		class="sapUiContentPadding"
+		showNavButton="false" navButtonPress="_onNavBack">
+
+		<core:ComponentContainer id="zfgghadagestorperfiles" name="hada.md.zfgghadagestorperfiles" component="zfgg_hd_gestorp"  autoPrefixId="true" propagateModel="true" /> 
+
+	</Page>
+</mvc:View>

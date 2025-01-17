@@ -1,0 +1,35 @@
+<!-- INI HADA 3 -->
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:t="sap.ui.table" 
+    xmlns:d="sap.ui.unified"
+>
+    <Dialog
+        id="dialogRolPerfil"
+        class="sapUiPopupWithPadding"
+        contentWidth="750px"
+        contentHeight="520px"
+        busyIndicatorDelay="0"  
+        showHeader="true" >
+
+        <t:Table id="tableRolPerfil" selectionMode="None" rows="{RolesPerfil>/}"  ariaLabelledBy="title" rowHeight="auto" visibleRowCount="13">
+            <t:columns>
+                <t:Column id="Rol">
+                    <Label  text="Rol" />
+                        <t:template>
+                            <Text tooltip="{RolesPerfil>Rol}" text="{RolesPerfil>Rol}" wrapping="false" />
+                        </t:template>
+                </t:Column>                
+            </t:columns>
+        </t:Table>	
+		<endButton>
+			<Button text="Cancelar" press="onCloseRolesPerfil"/>
+		</endButton>
+    </Dialog>
+</core:FragmentDefinition>
+<!-- FIN HADA 3 -->

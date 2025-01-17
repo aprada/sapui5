@@ -1,0 +1,147 @@
+{
+  "_version": "1.37.0",
+  "sap.app": {
+    "id": "zfgghadamantenimientousuario.zfgghadamantusuario",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.12.3",
+      "toolsId": "6b415ffe-b73f-49dd-9ae3-256f734cc121"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZFGG_CL_HADA_GESTION_USUARIO_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZFGG_HADA_AYUDA_BUSQUEDA_SRV": {
+        "uri": "/sap/opu/odata/sap/ZFGG_HADA_AYUDA_BUSQUEDA_SRV/",
+        "type": "OData",
+        "settings": {
+            "odataVersion": "2.0",
+            "localUri": "localService/ZFGG_HADA_AYUDA_BUSQUEDA_SRV/metadata.xml"
+        }
+    }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.96.6",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "zfgghadamantenimientousuario.zfgghadamantusuario.i18n.i18n"
+        }
+      },
+      "F4Generic": {
+        "type": "sap.ui.model.odata.v2.ODataModel",
+        "settings": {
+            "defaultOperationMode": "Server",
+            "defaultBindingMode": "OneTime",
+            "defaultCountMode": "Request"
+        },
+        "dataSource": "ZFGG_HADA_AYUDA_BUSQUEDA_SRV",
+        "preload": true
+    },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "zfgghadamantenimientousuario.zfgghadamantusuario.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteMain",
+          "pattern": "",
+          "target": [
+            "TargetMain"
+          ]
+        },
+        {
+          "pattern": "setPerfiles/{BNAME}",
+          "name": "setPerfiles",
+          "target": "Perfiles"
+        }
+      ],
+      "targets": {
+        "TargetMain": {
+          "viewLevel": 1,
+          "viewId": "Main",
+          "viewName": "Main"
+        },
+        "Perfiles": {
+          "viewId": "setPerfiles",
+          "viewLevel": 2,
+          "viewName": "setPerfiles"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "zfgghadamantenimientousuario.zfgghadamantusuario.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:d="sap.ui.unified"
+>
+    <Dialog
+        id="dialogGradoAvance"
+        class="sapUiPopupWithPadding"
+        contentWidth="1000px"
+        contentHeight="1500px"
+        busyIndicatorDelay="0"  
+        showHeader="false"  >
+
+            <core:ComponentContainer id="zfgghadagestorperfiles" name="hada.md.zfgghadagestorperfiles" component="zfgg_hd_gestorp"  autoPrefixId="true" propagateModel="true" />
+
+        <!--<beginButton>
+			<Button id="Aceptar" text="Aceptar" press="onSaveAvance"/>
+		</beginButton>
+		<endButton>
+			<Button id="Cancelar" text="Cancelar" press="onCloseAvance"/>
+		</endButton>-->
+    </Dialog>
+</core:FragmentDefinition>

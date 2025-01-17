@@ -1,0 +1,250 @@
+<mvc:View controllerName="zfgghadamantenimientousuario.zfgghadamantusuario.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified"
+	xmlns:t="sap.ui.table" 
+	xmlns:layout="sap.ui.layout">
+    		<f:DynamicPage
+			stickySubheaderProvider="CreateProductWizard"
+			toggleHeaderOnTitleClick="false"
+			class="sapUiNoContentPadding"
+			showFooter="true">
+			<f:title>
+				<f:DynamicPageTitle>
+					<f:heading>
+						<Title id="tituloApp" />
+					</f:heading>
+				</f:DynamicPageTitle>
+			</f:title>
+			<f:content>
+				<Wizard id="CreateUsuarioWizard"
+						class="sapUiResponsivePadding--header sapUiResponsivePadding--content"
+						showNextButton="false"
+						renderMode="Page"
+						navigationChange="handleNavigationChange" >
+					<WizardStep id="DatosUsuarioStep"
+								title="{i18n>DatosUsuarioStep}"
+								validated="true"
+								complete="datosPerfilAct">
+						<MessageStrip id="areaMsg" class="sapUiSmallMarginBottom"
+								showIcon="true" visible="false"/>
+						<form:SimpleForm
+								id="principal"
+								editable="true"
+                                layout="ResponsiveGridLayout"
+			                    labelSpanXL="3"
+			                    labelSpanL="3"
+			                    labelSpanM="3"
+			                    labelSpanS="3"
+			                    adjustLabelSpan="false"
+			                    emptySpanXL="0"
+			                    emptySpanL="0"
+			                    emptySpanM="0"
+			                    emptySpanS="0"
+			                    columnsXL="2"
+			                    columnsL="2"
+			                    columnsM="2"
+			                    singleContainerFullSize="false">
+							<Label text="{i18n>login}" required="true"/>
+							<Input  valueStateText="Inserte el usuario..." 
+									id="I_BNAME"
+									showValueHelp="{aplicationType>/help}"
+                        			valueHelpOnly="{aplicationType>/helpOnly}"
+									valueHelpRequest="OnValueHelpCollective"
+									placeholder="Inserte el usuario..."
+									value="{ path : '/name',
+											 type : 'sap.ui.model.type.String',
+													constraints : {	minLength: 1,
+																	maxLength: 12 }
+									}"
+									change= ".onLoginChange" >
+                                    <layoutData>
+						            <layout:GridData span="XL3 L3 M3 S3" />
+					                </layoutData>
+                             </Input>
+							<Label text="{i18n>nombre}" required="{aplicationType>/required}"/>
+							<Input id="nombre" value="{usuario>/NameFirst}" change="modifChange" maxLength="40"/>
+							<Label text="{i18n>nif}" required="{aplicationType>/required}"/>
+							<Input id="nif" value="{usuario>/Stcd1}" change="nifValid"/>
+							<Label text="{i18n>sociedad}" required="{aplicationType>/required}"/>
+							<Input id="I_BUKRS" value="{usuario>/Bukrs}" showValueHelp="true"
+                        		   valueHelpOnly="true" valueHelpRequest="OnValueHelpCollective" change="modifChange">
+                                    <layoutData>
+						            <layout:GridData span="XL2 L2 M2 S2" />
+					                </layoutData>
+                             </Input>
+                            <Input id="I_BUKRST" editable="false" value="{usuario>/Butxt}" tooltip="{usuario>/Butxt}"/>
+                            <Label text="{i18n>division}"/>
+							<Input id="I_GSBER" value="{usuario>/Gsber}"  showValueHelp="true"
+                        		   valueHelpOnly="{aplicationType>/helpOnly}" valueHelpRequest="OnValueHelpCollective" change="gsberValid">
+                                    <layoutData>
+						            <layout:GridData span="XL2 L2 M2 S2" />
+					                </layoutData>
+                             </Input>
+                            <Input id="I_GSBERT" editable="false" value="{usuario>/Gtext}" tooltip="{usuario>/Gtext}"/>
+							<Label text="{i18n>centro}"/>
+							<Input id="I_FM_FICTR" value="{usuario>/Fictr}"  showValueHelp="true"
+                        		   valueHelpOnly="{aplicationType>/helpOnly}" valueHelpRequest="OnValueHelpCollective" change="fictrValid">
+                                    <layoutData>
+						            <layout:GridData span="XL3 L3 M3 S3" />
+					                </layoutData>
+                             </Input>
+                            <Input id="I_FM_FICTRT" editable="false" value="{usuario>/FictrDescr}" tooltip="{usuario>/FictrDescr}"/>
+                            <Toolbar ></Toolbar>
+                            
+                            <Label text="{i18n>apellidos}" required="{aplicationType>/required}"/>
+							<Input  id="apellidos" value="{usuario>/NameLast}" change="modifChange" maxLength="40"/>
+                            <Label text="{i18n>correo}"/>
+							<Input  id="correo" type="Email" change="modifChange"
+									valueStateText="El correo electrónico debe ser una dirección de correo electrónico válida."
+									value="{ path: 'usuario>/SmtpAddr',
+											type: '.customEMailType'}"/>
+                            </form:SimpleForm>
+                            <form:SimpleForm editable="true"
+                                layout="ResponsiveGridLayout"
+			                    labelSpanXL="3"
+			                    labelSpanL="3"
+			                    labelSpanM="3"
+			                    labelSpanS="3"
+			                    adjustLabelSpan="false"
+			                    emptySpanXL="0"
+			                    emptySpanL="0"
+			                    emptySpanM="0"
+			                    emptySpanS="0"
+			                    columnsXL="2"
+			                    columnsL="2"
+			                    columnsM="2"
+			                    singleContainerFullSize="false">
+                            
+                            <Label text="{i18n>fechafin}" required="{aplicationType>/required}"/>
+							<DatePicker id="fechafin" 
+								value="{path:'usuario>/ZFfvalus', type:'sap.ui.model.type.Date', formatOptions: {pattern:'dd-MM-yyyy'} }" change="modifChange">
+								<layoutData>
+									<layout:GridData span="XL3 L3 M3 S3" />
+								</layoutData>
+							</DatePicker>
+							<Label text="{i18n>usumod}"/>
+							<Input  id="usumod" value="{usuario>/ZUua}" editable="false">
+                                    <layoutData>
+						            <layout:GridData span="XL3 L3 M3 S3" />
+					                </layoutData>
+                             </Input>
+                            <Label text="{i18n>fechamod}"/>
+							<DatePicker id="fechamod" editable="false"
+								value="{path:'usuario>/ZFua', type:'sap.ui.model.type.Date', formatOptions: {pattern:'dd-MM-yyyy'} }">
+                                    <layoutData>
+						            <layout:GridData span="XL3 L3 M3 S3" />
+					                </layoutData>
+                             </DatePicker>
+						</form:SimpleForm>
+						
+					<OverflowToolbar design="Solid" style="Standard">
+						<ToolbarSpacer/>
+						<Button text="{i18n>siguiente}" type="Emphasized"  press="onNextButton" />
+						<Button id='save' text="{i18n>guardar}"   type="Emphasized"  press="saveUsuario" />
+						<Button id='baja' visible="false" text="{i18n>baja}"   type="Emphasized"  press="bajaUsuario" />
+					</OverflowToolbar>
+			
+					</WizardStep>
+					<WizardStep id="DatosPerfilStep"
+								validated="false"
+								title="Datos Perfil"
+								activate="datosPerfilAct">
+						<MessageStrip id="areaPerfilMsg" class="sapUiSmallMarginBottom"
+								text=""
+								showIcon="true" visible="false"/>
+					<t:Table id="table" selectionMode="{aplicationType>/selectionMode}" rows="{usuarioPerfil>/}"  sort="sortDeliveryDate" ariaLabelledBy="title" rowHeight="auto" >
+                                    <t:columns>
+                                        <t:Column id="perfil" width="11rem" sortProperty="CodPerfil" filterProperty="CodPerfil">
+                                            <Label id="_IDGenLabel5" text="Perfil" />
+                                            <t:template>
+                                                <Text id="_IDGenText7" tooltip="{usuarioPerfil>CodPerfil}" text="{usuarioPerfil>CodPerfil}" wrapping="false" />
+                                            </t:template>
+                                        </t:Column>
+                                        <t:Column id="desPerfil" width="33rem" showSortMenuEntry="false" sortProperty="DescPerfil" filterProperty="DescPerfil">
+                                            <Label id="_IDGenLabel4" text="Descripción Perfil" />
+                                            <t:template>
+                                                <Text id="_IDGenText6"  tooltip="{usuarioPerfil>DescPerfil}" text="{usuarioPerfil>DescPerfil}" wrapping="false" />
+                                            </t:template>
+                                        </t:Column>
+										<t:Column id="param" width="11rem" showSortMenuEntry="false" >
+                                            <Label text="Visualizar Parámetros" />
+                                            <t:template>
+                                                <core:Icon src="{= ${usuarioPerfil>PrmOrg} === true ? 'sap-icon://detail-view' : ' ' }"	class="size5" color="#8875E7" press="viewParamPress" >
+													<core:layoutData>
+														<FlexItemData growFactor="1" />
+													</core:layoutData>
+												</core:Icon>
+                                            </t:template>
+                                        </t:Column>
+									    <!-- INI HADA 3 -->
+										<t:Column id="act" width="11rem" showSortMenuEntry="false" >
+                                            <Label text="Otras Actuaciones" />
+                                            <t:template>
+                                                <core:Icon src="{= ${usuarioPerfil>CodAct} === true ? 'sap-icon://detail-view' : ' ' }"	class="size5" color="#8875E7" press="viewOtrasActPress" >
+													<core:layoutData>
+														<FlexItemData growFactor="1" />
+													</core:layoutData>
+												</core:Icon>
+                                            </t:template>
+                                        </t:Column>
+										<t:Column id="rolPerfil" width="11rem" showSortMenuEntry="false" >
+                                            <Label text="Roles Perfil" />
+                                            <t:template>
+                                                <core:Icon src="sap-icon://detail-view"	class="size5" color="#8875E7" press="viewRolesPerfilPress" >
+													<core:layoutData>
+														<FlexItemData growFactor="1" />
+													</core:layoutData>
+												</core:Icon>
+                                            </t:template>
+                                        </t:Column>
+										<!-- FIN HADA 3 -->
+										<t:Column id="estado" width="11rem" showSortMenuEntry="false" sortProperty="DescEstado">
+                                            <Label text="Estado" />
+                                            <t:template>
+                                                <Text tooltip="{usuarioPerfil>DescEstado}" text="{usuarioPerfil>DescEstado}" wrapping="false" />
+                                            </t:template>
+                                        </t:Column>
+                                        <t:Column id="fechaIni" width="9rem" sortProperty="FromDat">
+                                            <Label id="_IDGenLabel2" text="Fecha Ini." />
+                                            <t:template>
+                                                <Text id="_IDGenText4" text="{ path: 'usuarioPerfil>FromDat',
+																			   type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}
+																			 }" wrapping="false" />
+                                            </t:template>
+                                        </t:Column>
+                                        <t:Column id="fechaFin" width="9rem" sortProperty="ToDat">
+                                            <Label id="_IDGenLabel34" text="Fecha Fin" />
+                                            <t:template>
+                                                <Text id="_IDGenText44" text="{ path: 'usuarioPerfil>ToDat',
+																			   type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}
+																			 }" wrapping="false" />
+                                            </t:template>
+                                        </t:Column>
+                                    </t:columns>
+
+                                    <t:footer>
+                                        <OverflowToolbar id="footer" enabled="{actionTable>/actTable}">
+
+                                            <Button id="_IDGenButton3" text="Alta" tooltip="Alta" press="altaPerfil" />
+											<Button id="_IDGenButton" text="Baja" tooltip="Baja" press="bajaPerfil" />
+                                            <ToolbarSpacer id="_IDGenToolbarSpacer2" />
+                                            <Button id="_IDGenButton2" visible="true" icon="sap-icon://add-document" tooltip="Añadir Perfil" press="addPerfil" />
+                                            <Button id="_IDGenButton1" visible="true" icon="sap-icon://delete" tooltip="Borrar Perfil" press="deletePerfil" />
+                                            
+                                        </OverflowToolbar>
+                                    </t:footer>
+                                </t:Table>	
+
+
+
+					</WizardStep>
+				</Wizard>
+			</f:content>
+
+			
+		</f:DynamicPage>
+</mvc:View>
