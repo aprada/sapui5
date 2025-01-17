@@ -8,6 +8,7 @@ sap.ui.define(
   
       return BaseController.extend("zfgghadamantenimientousuario.zfgghadamantusuario.controller.App", {
         onInit: function() {
+          
         }
       });
     }
