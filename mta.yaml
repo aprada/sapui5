@@ -1,0 +1,69 @@
+_schema-version: "3.2"
+ID: mta_cloud
+version: 0.0.1
+modules:
+- name: mta-cloud-approuter
+  type: approuter.nodejs
+  path: mta-cloud-approuter
+  requires:
+  - name: mta_cloud_html_repo_runtime
+  - name: uaa_mta_cloud
+  - name: dest_mta_cloud
+  - name: conn_mta_cloud
+  parameters:
+    disk-quota: 256M
+    memory: 256M
+- name: mta_cloud_ui_deployer
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: mta_cloud_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - informeinformegastos.zip
+      name: informeinformegastos
+      target-path: resources/
+- name: informeinformegastos
+  type: html5
+  path: informe_gastos
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: mta_cloud_html_repo_runtime
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-runtime
+- name: uaa_mta_cloud
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: mta_cloud-xsuaa-service
+    service-plan: application
+- name: mta_cloud_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-host
+- name: dest_mta_cloud
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: destination
+    service-plan: lite
+- name: conn_mta_cloud
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: connectivity
+    service-plan: lite
+parameters:
+  deploy_mode: html5-repo

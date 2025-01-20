@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZFEAPS_DDL_VAL_MASIVA_GRAV_CDS" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="ZFEAPS_DDL_VAL_MASIVA_GRAVType" sap:label="Validación masiva grado de avance" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Entidad"/>
+                    <PropertyRef Name="Denominacion"/>
+                    <PropertyRef Name="cod_spry_def"/>
+                    <PropertyRef Name="cod_hyo"/>
+                    <PropertyRef Name="cod_indicador"/>
+                </Key>
+                <Property Name="Entidad" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Entidad Ejecutora" sap:value-list="standard"/>
+                <Property Name="Denominacion" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Descripción Entidad Ejecutora" sap:quickinfo="Descripción"/>
+                <Property Name="cod_spry_def" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Subproyecto" sap:quickinfo="Fondos MRR - Sub Proyecto MRR Def" sap:value-list="standard"/>
+                <Property Name="cod_hyo" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Localizador HyO" sap:quickinfo="Fondos MRR - Localizador Hito y Objetico CoFFee"/>
+                <Property Name="cod_indicador" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Código Indicador" sap:quickinfo="Fondos MRR - Código de Indicador CoFFee" sap:value-list="standard"/>
+                <Property Name="des_spry" Type="Edm.String" MaxLength="1333" sap:label="Desc. Subproyecto" sap:quickinfo="Fondos MRR -  Descripción Subproyecto Definitivo"/>
+                <Property Name="fecha_ini_spry" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Fecha Inicio SPRY" sap:quickinfo="Fondos MRR - Fecha Inicio Suproyecto"/>
+                <Property Name="fecha_fin_spry" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Fecha Fin Subproyect" sap:quickinfo="Fondos MRR - Fecha Fin Subproyecto"/>
+                <Property Name="nombre_hyo" Type="Edm.String" MaxLength="1333" sap:label="Nombre HyO" sap:quickinfo="Fondos MRR - Nombre HyO CoFFee" sap:value-list="standard"/>
+                <Property Name="fecha_fin_hyo" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Fecha Cumplimiento" sap:quickinfo="Fondos MRR - Fecha Cumplimiento HyO CoFFee"/>
+                <Property Name="desc_ind" Type="Edm.String" MaxLength="1333" sap:label="Desc. Indicador" sap:quickinfo="Fondos MRR - Descripción del Indicador CoFFee"/>
+                <Property Name="tipo_ind" Type="Edm.String" MaxLength="12" sap:label="Tipo Indicador"/>
+                <Property Name="valor_final" Type="Edm.String" MaxLength="10" sap:label="Valor Final"/>
+                <Property Name="valor" Type="Edm.String" MaxLength="10" sap:label="Valor Logrado"/>
+                <Property Name="finalizado_avance" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Cerrado" sap:quickinfo="Indicador general"/>
+                <Property Name="f_avance" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Fecha Valor Logrado" sap:quickinfo="Fecha"/>
+                <Property Name="h_avance" Type="Edm.Time" Precision="0" sap:label="Hora Valor Logrado" sap:quickinfo="Campo de tipo TIMS"/>
+                <Property Name="usu_avance" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Usuario Valor Logrado" sap:quickinfo="Nombre de usuario"/>
+            </EntityType>
+            <EntityType Name="ZFEAPS_ENTIDAD2_VHType" sap:label="Ayuda Entidad Ejecutora Grado Avance" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Entidad"/>
+                </Key>
+                <Property Name="Entidad" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Entidad Ejecutora"/>
+                <Property Name="Denominacion" Type="Edm.String" MaxLength="100" sap:label="Descripción Entidad Ejecutora" sap:quickinfo="Descripción"/>
+            </EntityType>
+            <EntityType Name="ZFEAPS_HYO2_VHType" sap:label="Ayuda hyo Grado Avance" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Entidad"/>
+                    <PropertyRef Name="CodSpr"/>
+                    <PropertyRef Name="CodHyo"/>
+                </Key>
+                <Property Name="Entidad" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Entidad Ejecutora"/>
+                <Property Name="CodSpr" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="SubProyecto MRR Def" sap:quickinfo="Fondos MRR - Sub Proyecto MRR Def"/>
+                <Property Name="CodHyo" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Localizador HyO" sap:quickinfo="Fondos MRR - Localizador Hito y Objetico CoFFee"/>
+                <Property Name="Denominacion" Type="Edm.String" MaxLength="1333" sap:label="Nombre HyO" sap:quickinfo="Fondos MRR - Nombre HyO CoFFee"/>
+            </EntityType>
+            <EntityType Name="ZFEAPS_INDICADOR2_VHType" sap:label="Ayuda indicador Grado Avance" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CodInd"/>
+                </Key>
+                <Property Name="CodInd" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Código Indicador" sap:quickinfo="Fondos MRR - Código de Indicador CoFFee"/>
+                <Property Name="Denominacion" Type="Edm.String" MaxLength="1333" sap:label="Desc. Indicador" sap:quickinfo="Fondos MRR - Descripción del Indicador CoFFee"/>
+            </EntityType>
+            <EntityType Name="ZFEAPS_SUBPROYDEF2_VHType" sap:label="Ayuda Subproyecto Definitiv Grado Avance" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Entidad"/>
+                    <PropertyRef Name="CodSpr"/>
+                </Key>
+                <Property Name="Entidad" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Entidad Ejecutora"/>
+                <Property Name="CodSpr" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="SubProyecto MRR Def" sap:quickinfo="Fondos MRR - Sub Proyecto MRR Def"/>
+                <Property Name="Denominacion" Type="Edm.String" MaxLength="1333" sap:label="Desc. Subproyecto" sap:quickinfo="Fondos MRR -  Descripción Subproyecto Definitivo"/>
+            </EntityType>
+            <EntityContainer Name="ZFEAPS_DDL_VAL_MASIVA_GRAV_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZFEAPS_DDL_VAL_MASIVA_GRAV" EntityType="ZFEAPS_DDL_VAL_MASIVA_GRAV_CDS.ZFEAPS_DDL_VAL_MASIVA_GRAVType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZFEAPS_ENTIDAD2_VH" EntityType="ZFEAPS_DDL_VAL_MASIVA_GRAV_CDS.ZFEAPS_ENTIDAD2_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZFEAPS_HYO2_VH" EntityType="ZFEAPS_DDL_VAL_MASIVA_GRAV_CDS.ZFEAPS_HYO2_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZFEAPS_INDICADOR2_VH" EntityType="ZFEAPS_DDL_VAL_MASIVA_GRAV_CDS.ZFEAPS_INDICADOR2_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZFEAPS_SUBPROYDEF2_VH" EntityType="ZFEAPS_DDL_VAL_MASIVA_GRAV_CDS.ZFEAPS_SUBPROYDEF2_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotations Target="ZFEAPS_DDL_VAL_MASIVA_GRAV_CDS.ZFEAPS_DDL_VAL_MASIVA_GRAVType/Entidad" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Ayuda Entidad Ejecutora Grado Avance"/>
+                        <PropertyValue Property="CollectionPath" String="ZFEAPS_ENTIDAD2_VH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Entidad"/>
+                                    <PropertyValue Property="ValueListProperty" String="Entidad"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Denominacion"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZFEAPS_DDL_VAL_MASIVA_GRAV_CDS.ZFEAPS_DDL_VAL_MASIVA_GRAVType/cod_spry_def" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Ayuda Subproyecto Definitiv Grado Avance"/>
+                        <PropertyValue Property="CollectionPath" String="ZFEAPS_SUBPROYDEF2_VH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Entidad"/>
+                                    <PropertyValue Property="ValueListProperty" String="Entidad"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="cod_spry_def"/>
+                                    <PropertyValue Property="ValueListProperty" String="CodSpr"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Denominacion"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZFEAPS_DDL_VAL_MASIVA_GRAV_CDS.ZFEAPS_DDL_VAL_MASIVA_GRAVType/cod_indicador" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Ayuda indicador Grado Avance"/>
+                        <PropertyValue Property="CollectionPath" String="ZFEAPS_INDICADOR2_VH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="cod_indicador"/>
+                                    <PropertyValue Property="ValueListProperty" String="CodInd"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Denominacion"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZFEAPS_DDL_VAL_MASIVA_GRAV_CDS.ZFEAPS_DDL_VAL_MASIVA_GRAVType/nombre_hyo" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Ayuda hyo Grado Avance"/>
+                        <PropertyValue Property="CollectionPath" String="ZFEAPS_HYO2_VH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Entidad"/>
+                                    <PropertyValue Property="ValueListProperty" String="Entidad"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="cod_spry_def"/>
+                                    <PropertyValue Property="ValueListProperty" String="CodSpr"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="nombre_hyo"/>
+                                    <PropertyValue Property="ValueListProperty" String="CodHyo"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Denominacion"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZFEAPS_DDL_VAL_MASIVA_GRAV_CDS.ZFEAPS_DDL_VAL_MASIVA_GRAV_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <atom:link rel="self" href="https://NEXEFS4X01.MADRID.ORG:8001/sap/opu/odata/sap/ZFEAPS_DDL_VAL_MASIVA_GRAV_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://NEXEFS4X01.MADRID.ORG:8001/sap/opu/odata/sap/ZFEAPS_DDL_VAL_MASIVA_GRAV_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

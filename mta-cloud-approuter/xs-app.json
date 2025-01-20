@@ -1,0 +1,19 @@
+{
+  "authenticationMethod": "none",
+  "routes": [
+    {
+      "source" : "^/sap/opu/odata/sap/ZFEAPS_DDL_VAL_MASIVA_GRAV_CDS/(./*)$",
+      "target": "$1",
+      "destination": "F4X",
+      "csrfProtection": true,
+      "authenticationType": "none"
+    },
+    {
+      "source": "^(.*)$",
+      "target": "informe_gastos/$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    }
+  ],
+  "welcomeFile": "/informeinformegastos"
+}

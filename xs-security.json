@@ -1,0 +1,25 @@
+{
+  "xsappname": "mta_cloud",
+  "tenant-mode": "dedicated",
+  "oauth2-configuration": {
+    "redirect-uris": [
+        "https://*.cfapps.eu10-005.hana.ondemand.com/**"
+      ]
+    },
+  "description": "Security profile of called application",
+  "scopes": [
+    {
+      "name": "uaa.user",
+      "description": "UAA"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Token_Exchange",
+      "description": "UAA",
+      "scope-references": [
+        "uaa.user"
+      ]
+    }
+  ]
+}
